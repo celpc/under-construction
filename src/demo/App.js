@@ -1,6 +1,6 @@
 import React from 'react';
 import UnderConstruction from '../lib';
-import logo from './udilia-logo-white.svg';
+import logo from './cel-logo-short.jpeg';
 
 const App = () => (
   <UnderConstruction

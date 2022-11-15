@@ -26,7 +26,7 @@ class UnderConstruction extends React.Component {
   }
 
   render() {
-    const { background, title, description, logo, subscribe, links } = this.props;
+    const { background, title, description, logo, subscribe } = this.props;
 
     if (background.overlay && background.overlay.color && !background.overlay.opacity) {
       console.error("background.overlay.opacity is required when using background.overlay");
@@ -80,7 +80,7 @@ class UnderConstruction extends React.Component {
 
           {subscribe.onSubmit && 
             <div className="UnderConstruction-notify">
-              <form onSubmit={this.onFormSubmit}>
+              <form name="contact" method="POST" data-netlify="true">
                 <input
                   className="UnderConstruction-input"
                   type="text"
@@ -99,34 +99,6 @@ class UnderConstruction extends React.Component {
               </form>
             </div>}
         </div>  
-
-        {links && links.length > 0 && 
-          <div className="UnderConstruction-social-networks">
-            {links.map((social, i) => (
-              <a
-                className="UnderConstruction-social-networks-link"
-                key={i}
-                target='_blank'
-                rel="noopener noreferrer"
-                href={social.url}
-              >
-                {social.image &&
-                  <img
-                    className="UnderConstruction-social-networks-image"
-                    src={social.image}
-                    alt={social.text}
-                    style={{ ...social.imageStyle }}
-                  />}
-                {social.text && 
-                  <span
-                    className="UnderConstruction-social-networks-text"
-                    style={{ ...social.textStyle }}
-                  >
-                    {social.text}
-                  </span>}
-              </a>
-            ))}
-          </div>}
       </div>
     );
   }
